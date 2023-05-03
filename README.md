@@ -14,3 +14,27 @@ Tekniskt upplägg avgör ni på egen hand.
 - [ ] Skriv ett gruppkontrakt: när träffas ni varje vardag och hur. Bestäm tider för retro, demo och review redan nu. Hur ska ni arbeta? Hur hanterar ni pull requests och merges? Vem ansvarar för testning?
 
 - Önskar ni feedback på koden ska ni _inte_ merge:a pull requesten som heter "Feedback".
+
+
+
+## Gruppkontrakt
+
+Dagliga möten (daily standups) via Teams kl 09.00 vardagar. 
+Diskussion kring dagens upplägg. 
+Enskild kodning resp. parkodning. 
+Hålla kontakten via Teams. 
+Skapa egna branches från issues på GitHub. (Issues från backlog).
+Stäm av innan merge när det uppstår konflikter. 
+Ta bort branches efter merge. 
+Den som kodar ansvarar för att densamma fungerar (testar sin kod). 
+Fetcha från main ofta för att minska på risk för konflikter.
+
+Scrum master: Nikolaj Nowicki
+
+Retrospective: Fredag denna vecka och torsdag nästa vecka.
+
+Camilla Ridesjö
+Nikolaj Nowicki
+Simon Vindahl
+Filippa Söderlund
+
