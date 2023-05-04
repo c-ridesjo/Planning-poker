@@ -1,19 +1,23 @@
 # Daily Standup Report
 
 ## Wazzup?
+
 > Yesterday I…, today I will…, I need help with…, I'm stuck with…, TIL…
 
-### Name 1
+### Nikolaj Nowicki
+
 Lorem ipsum dolor sit amet
 
-### Name 2
+### Camilla Ridesjö
+
 Lorem ipsum dolor sit amet
 
-### Name 3
+### Simon Vindahl
+
 Lorem ipsum dolor sit amet
 
-### Name 4
-Lorem ipsum dolor sit amet
+### Filippa Söderlund
 
+(Skriven i slutet av dagen) Idag har vi större delen av dagen betat av dem sista bitarna i grupp för att komma igång med projectet, socket.io kopplingen fungerar och vi har delat upp och planerat en stor del av veckans arbete. Delvis sitter jag fast med socket då kunskapen är bristande. 
 
 > ⚠️⚠️⚠️ Remember to add a screenshot of today's scrum board to this folder!
