@@ -22,4 +22,4 @@ Lorem ipsum dolor sit amet
 
 > ⚠️⚠️⚠️ Remember to add a screenshot of today's scrum board to this folder!
 
-![Screenshot](/scrum-cermonies/day2-2022_05_04_thu/2023-05-04.png)
+
