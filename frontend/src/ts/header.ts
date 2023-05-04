@@ -31,6 +31,33 @@ export function renderHeader() {
   loginButton.type = "submit";
   loginButton.innerText = "Login";
 
+  loginButton.addEventListener("click", async function (event) {
+    event.preventDefault();
+
+    try {
+      const username = userNameInput.value;
+      const password = passwordInput.value;
+
+      const response = await fetch("http://localhost:3000/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userName: username, userPassword: password }),
+      });
+
+      if (response.status === 200) {
+        localStorage.setItem("userName", username);
+      } else {
+        const error = await response.text();
+        throw new Error(error);
+      }
+    } catch (err) {
+      console.error(err);
+      alert(`Failed to log in`);
+    }
+  });
+
   headerContainer?.append(headerWrapper);
   headerWrapper.append(inputContainer);
   inputContainer.append(loginForm);
