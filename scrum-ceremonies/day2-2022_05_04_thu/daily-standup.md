@@ -21,3 +21,5 @@ Lorem ipsum dolor sit amet
 (Skriven i slutet av dagen) Idag har vi större delen av dagen betat av dem sista bitarna i grupp för att komma igång med projectet, socket.io kopplingen fungerar och vi har delat upp och planerat en stor del av veckans arbete. Delvis sitter jag fast med socket då kunskapen är bristande. 
 
 > ⚠️⚠️⚠️ Remember to add a screenshot of today's scrum board to this folder!
+
+![Screenshot](/scrum-cermonies/day2-2022_05_04_thu/2023-05-04.png)
