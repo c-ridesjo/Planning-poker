@@ -9,6 +9,7 @@ const connection = require("./conn");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var tasksRouter = require("./routes/tasks");
 
 var app = express();
 const server = require("http").Server(app);
@@ -35,24 +36,35 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/tasks", tasksRouter);
+
 
 
 
 io.on("connection", function (socket) {
 
+
     console.log("user connected")
+    // console.log(socket.id)
+
+    socket.emit("socket connected", socket.id)
 
 
     socket.on("disconnect", function () {
         console.log("user disconected")
+
     })
 
-    socket.on("chat message", function (msg) {
-        console.log("msg", msg)
-        io.emit("chat message", msg);
-    })
+    socket.on('task-event', (message) => {
+        console.log('received message:', message);
+        io.emit('chat message', message);
+    });
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+
 
 })
-
 
 module.exports = { app: app, server: server };
