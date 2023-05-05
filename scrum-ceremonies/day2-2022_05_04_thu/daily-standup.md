@@ -10,7 +10,7 @@ Lorem ipsum dolor sit amet
 
 ### Camilla Ridesjö
 
-Lorem ipsum dolor sit amet
+I dag har vi satt story points på backlog-uppgifterna för resten av veckan och delat upp uppgifterna mellan oss. Därefter hjälptes vi åt att få socket-kopplingen att fungera. Vi fick en del bekymmer då ingen av oss i gruppen tidigare jobbat med socket.io och därför fick vi även ta hjälp av Jenni. Jag har skapat första kortet till spelet. 
 
 ### Simon Vindahl
 
