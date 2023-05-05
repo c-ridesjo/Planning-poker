@@ -6,7 +6,7 @@
 
 ### Nikolaj Nowicki
 
-Lorem ipsum dolor sit amet
+Idag delade vi upp uppgifter från våran sprint, jag gjorde en enkel mySql databas som hanterar login samt gjorde en header som är kopplad till inlogg routern.
 
 ### Camilla Ridesjö
 
