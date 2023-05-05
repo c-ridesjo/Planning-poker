@@ -49,7 +49,6 @@ export function renderTasks() {
         const message = chatMessageInput.value;
         console.log(chatMessageInput.value);
         if (message) {
-            addMessageToChat(message);
             chatMessageInput.value = "";
             socket.emit('task-event', message)
 
