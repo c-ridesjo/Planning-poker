@@ -7,7 +7,7 @@
 Jag ska ändra på kortet så att det renderas från ts-fil i stället för html. Vi ska fortsätta jobba tillsammans med socket-kopplingar. 
 
 ### Name 2
-Lorem ipsum dolor sit amet
+Idag är planen att göra färdigt headern så att den ändrar vy vid inlogg.
 
 ### Simon Vindahl
 Idag har jag ägnat mig åt att träna på Typescript och sockets för att utveckla en fungerande chattfunktion. Mitt nästa steg är att göra om funktionen så att den endast fungerar för administratören. 
