@@ -6,7 +6,7 @@
 ### Camilla Ridesjö
 Jag ska ändra på kortet så att det renderas från ts-fil i stället för html. Vi ska fortsätta jobba tillsammans med socket-kopplingar. 
 
-### Name 2
+### Nikolaj Nowicki
 Idag är planen att göra färdigt headern så att den ändrar vy vid inlogg.
 
 ### Simon Vindahl
