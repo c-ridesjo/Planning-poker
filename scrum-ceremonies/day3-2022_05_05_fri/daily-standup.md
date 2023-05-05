@@ -3,8 +3,8 @@
 ## Wazzup?
 > Yesterday I…, today I will…, I need help with…, I'm stuck with…, TIL…
 
-### Name 1
-Lorem ipsum dolor sit amet
+### Camilla Ridesjö
+Jag ska ändra på kortet så att det renderas från ts-fil i stället för html. Vi ska fortsätta jobba tillsammans med socket-kopplingar. 
 
 ### Name 2
 Lorem ipsum dolor sit amet
