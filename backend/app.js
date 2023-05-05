@@ -45,9 +45,9 @@ io.on("connection", function (socket) {
 
 
     console.log("user connected")
-    // console.log(socket.id)
+    console.log(socket.id)
 
-    socket.emit("socket connected", socket.id)
+    // socket.emit("socket connected", socket.id)
 
 
     socket.on("disconnect", function () {
