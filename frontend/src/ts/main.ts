@@ -13,16 +13,6 @@ socket.on("connect", () => {
     console.log("frontend");
 });
 
-socket.on("socket connected", (socketId: string) => {
-    console.log("socket connected", socketId);
-    const socketIdElement = document.getElementById("socket-id");
-    if (socketIdElement) {
-        socketIdElement.innerText = socketId;
-    }
-});
-
-
-
 renderCards();
 flipCards();
 renderHeader();
