@@ -64,6 +64,10 @@ io.on("connection", function (socket) {
         console.log('user disconnected');
     });
 
+    socket.on("delete-message", (messageId) => {
+        io.emit("delete-message", messageId);
+    });
+
 
 })
 
