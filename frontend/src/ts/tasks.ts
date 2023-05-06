@@ -33,17 +33,35 @@ export function renderTasks() {
     chatInputContainer.append(chatSendButton);
 
 
-    function addMessageToChat(message: string) {
+    function addMessageToChat(message: any, messageId: any) {
         let chatMessageContainer = document.createElement("div");
         chatMessageContainer.classList.add("chat-message-container");
+        chatMessageContainer.id = messageId;
 
         let chatMessage = document.createElement("div");
         chatMessage.classList.add("chat-message");
         chatMessage.innerText = message;
 
+        let useButton = document.createElement("button");
+        useButton.classList.add("use-button");
+        useButton.innerText = "Använd";
+
+
+        let deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.innerText = "Radera";
+
+        deleteButton.addEventListener("click", () => {
+            const messageId = chatMessageContainer.id;
+            socket.emit("delete-message", messageId);
+        });
+
         chatOutputBox.append(chatMessageContainer);
         chatMessageContainer.append(chatMessage);
+        chatMessageContainer.append(useButton);
+        chatMessageContainer.append(deleteButton);
     }
+
 
     chatMessageInput.addEventListener("keydown", (event) => {
         if (event.keyCode === 13) { // 13 is the key code for the "Enter" key
@@ -64,11 +82,17 @@ export function renderTasks() {
 
     });
 
-    socket.on('chat message', (message: any) => {
-        addMessageToChat(message);
+    socket.on("delete-message", (messageId: any) => {
+        const chatMessageContainer = document.getElementById(messageId);
+        if (chatMessageContainer) {
+            chatMessageContainer.remove();
+        }
     });
 
 
+    socket.on('chat message', (message: any, messageId: any) => {
+        addMessageToChat(message, messageId);
+    });
 
 }
 
