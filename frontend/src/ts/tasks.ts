@@ -45,6 +45,14 @@ export function renderTasks() {
         chatMessageContainer.append(chatMessage);
     }
 
+    chatMessageInput.addEventListener("keydown", (event) => {
+        if (event.keyCode === 13) { // 13 is the key code for the "Enter" key
+            event.preventDefault(); // prevent the default behavior of the "Enter" key, which is to insert a new line
+            chatSendButton.click(); // trigger a click event on the send button to send the message
+        }
+    });
+
+
     chatSendButton.addEventListener("click", () => {
         const message = chatMessageInput.value;
         console.log(chatMessageInput.value);
