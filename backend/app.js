@@ -64,6 +64,10 @@ io.on("connection", function (socket) {
         console.log('user disconnected');
     });
 
+    socket.on("use-message", (messageId) => {
+        io.emit("use-message", messageId);
+    });
+
     socket.on("delete-message", (messageId) => {
         io.emit("delete-message", messageId);
     });

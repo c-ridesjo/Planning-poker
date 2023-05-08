@@ -46,6 +46,11 @@ export function renderTasks() {
         useButton.classList.add("use-button");
         useButton.innerText = "Använd";
 
+        useButton.addEventListener("click", () => {
+            const messageId = chatMessageContainer.id;
+            socket.emit("use-message", messageId);
+        });
+
 
         let deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
@@ -54,6 +59,7 @@ export function renderTasks() {
         deleteButton.addEventListener("click", () => {
             const messageId = chatMessageContainer.id;
             socket.emit("delete-message", messageId);
+            chatMessageContainer.remove();
         });
 
         chatOutputBox.append(chatMessageContainer);
@@ -61,6 +67,7 @@ export function renderTasks() {
         chatMessageContainer.append(useButton);
         chatMessageContainer.append(deleteButton);
     }
+
 
 
     chatMessageInput.addEventListener("keydown", (event) => {
@@ -80,6 +87,14 @@ export function renderTasks() {
 
         }
 
+    });
+
+
+    socket.on("use-message", (messageId: any) => {
+        const chatMessageContainer = document.getElementById(messageId);
+        if (chatMessageContainer) {
+
+        }
     });
 
     socket.on("delete-message", (messageId: any) => {

@@ -17,13 +17,15 @@ import { renderCards } from "./cards";
 import { flipCards } from "./cards";
 import { renderTasks } from "./tasks";
 import { renderGuest } from "./createGuestInput";
+import { renderResult } from "./left-container";
 
 socket.on("connect", () => {
-    console.log("frontend");
+  console.log("frontend");
 });
 
 renderCards();
 flipCards();
 renderTasks();
 renderGuest();
+renderResult();
 
