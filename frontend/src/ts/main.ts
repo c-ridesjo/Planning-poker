@@ -17,6 +17,7 @@ import { renderTasks } from "./tasks";
 import { renderGuest } from "./createGuestInput";
 import { renderResult } from "./left-container";
 import { renderPointButtons } from "./pointButtons";
+import { renderScore } from "./pointCalc";
 
 socket.on("connect", () => {
   console.log("frontend");
@@ -28,3 +29,7 @@ renderTasks();
 renderGuest();
 renderResult();
 renderPointButtons();
+
+const myScores = [3, 2, 5, 8, 3, 1, 5];
+
+renderScore(myScores);
