@@ -1,0 +1,19 @@
+.chat-container-left {
+    position: fixed;
+    top: 50px;
+    /* adjust as needed */
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 20%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+
+}
