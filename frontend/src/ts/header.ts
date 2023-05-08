@@ -48,6 +48,7 @@ export function renderHeader() {
 
       if (response.status === 200) {
         localStorage.setItem("userName", username);
+        renderHeaderLoggedIn();
       } else {
         const error = await response.text();
         throw new Error(error);
@@ -64,4 +65,42 @@ export function renderHeader() {
   loginForm.append(userNameInput);
   loginForm.append(passwordInput);
   loginForm.append(loginButton);
+}
+
+export function renderHeaderLoggedIn() {
+  if (headerContainer) {
+    headerContainer.innerHTML = "";
+  }
+
+  let headerWrapper = document.createElement("div");
+  headerWrapper.classList.add("header-wrapper");
+  headerWrapper.id = "header-wrapper";
+
+  let loggedInContainer = document.createElement("div");
+  loggedInContainer.classList.add("logged-in-container");
+  loggedInContainer.id = "logged-in-container";
+
+  let welcomeMessage = document.createElement("div");
+  welcomeMessage.classList.add("welcome-message");
+  welcomeMessage.id = "welcome-message";
+  welcomeMessage.innerText = `Welcome, ${localStorage.getItem("userName")}`;
+
+  let logoutButton = document.createElement("button");
+  logoutButton.classList.add("logout-button");
+  logoutButton.id = "logout-button";
+  logoutButton.innerText = "Logout";
+
+  logoutButton.addEventListener("click", async function (event) {
+    event.preventDefault();
+    localStorage.removeItem("userName");
+    if (headerContainer) {
+      headerContainer.innerHTML = "";
+    }
+    renderHeader();
+  });
+
+  headerContainer?.append(headerWrapper);
+  headerWrapper.append(loggedInContainer);
+  loggedInContainer.append(welcomeMessage);
+  loggedInContainer.append(logoutButton);
 }

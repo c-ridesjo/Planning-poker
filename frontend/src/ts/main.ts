@@ -1,3 +1,8 @@
-import { renderHeader } from "./header";
+import { renderHeader, renderHeaderLoggedIn } from "./header";
 
-renderHeader();
+const name = localStorage.getItem("userName");
+if (name) {
+  renderHeaderLoggedIn();
+} else {
+  renderHeader();
+}
