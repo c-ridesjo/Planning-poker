@@ -68,7 +68,9 @@ io.on("connection", function (socket) {
         io.emit("use-message", messageId);
     });
 
+
     socket.on("delete-message", (messageId) => {
+        console.log('received message:', messageId);
         io.emit("delete-message", messageId);
     });
 
@@ -76,6 +78,7 @@ io.on("connection", function (socket) {
         console.log('Användare inloggad');
         io.emit('guestEvent', message);
     });
+
 
 
 })

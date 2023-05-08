@@ -36,11 +36,12 @@ export function renderTasks() {
     // Retrieve chat messages from local storage and display them in the chat window
     let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
     messages.forEach((msg: any) => {
-        addMessageToChat(msg.message, msg.id, false);
+        addMessageToChat(msg.message, msg.id);
     });
 
 
-    function addMessageToChat(message: any, messageId: any, isNewMessage: boolean = true) {
+
+    function addMessageToChat(message: any, messageId: any) {
         let chatMessageContainer = document.createElement("div");
         chatMessageContainer.classList.add("chat-message-container");
         chatMessageContainer.id = messageId;
@@ -53,28 +54,30 @@ export function renderTasks() {
         useButton.classList.add("use-button");
         useButton.innerText = "Använd";
 
-
         useButton.addEventListener("click", () => {
             const messageId = chatMessageContainer.id;
             socket.emit("use-message", messageId);
         });
 
-
         let deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.innerText = "Radera";
 
-        if (isNewMessage) {
-            // Store the message in local storage
-            let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
-            messages.push({ id: messageId, message: message });
-            localStorage.setItem("chat-messages", JSON.stringify(messages));
-        }
+
 
         deleteButton.addEventListener("click", () => {
             const messageId = chatMessageContainer.id;
+            // Remove the message from local storage
+            let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
+            messages = messages.filter((msg: any) => msg.id !== messageId);
+            localStorage.setItem("chat-messages", JSON.stringify(messages));
+
+            // Emit delete message event to the server
             socket.emit("delete-message", messageId);
+
+            // Remove the chat message container from the DOM
             chatMessageContainer.remove();
+
         });
 
         chatOutputBox.append(chatMessageContainer);
@@ -82,6 +85,7 @@ export function renderTasks() {
         chatMessageContainer.append(useButton);
         chatMessageContainer.append(deleteButton);
     }
+
 
 
 
@@ -95,22 +99,27 @@ export function renderTasks() {
 
     chatSendButton.addEventListener("click", () => {
         const message = chatMessageInput.value;
-        console.log(chatMessageInput.value);
         if (message) {
             chatMessageInput.value = "";
-            socket.emit('task-event', message)
-
-        }
-
-    });
-
-
-    socket.on("use-message", (messageId: any) => {
-        const chatMessageContainer = document.getElementById(messageId);
-        if (chatMessageContainer) {
-
+            // Store the new message in localStorage
+            let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
+            const messageId = new Date().getTime().toString(); // generate a unique message ID
+            messages.push({ id: messageId, message: message });
+            localStorage.setItem("chat-messages", JSON.stringify(messages));
+            // Emit the event to the server
+            socket.emit('task-event', message, messageId);
         }
     });
+
+
+    /*
+        socket.on("use-message", (messageId: any) => {
+            const chatMessageContainer = document.getElementById(messageId);
+            if (chatMessageContainer) {
+    
+            }
+        });
+        */
 
     socket.on("delete-message", (messageId: any) => {
         const chatMessageContainer = document.getElementById(messageId);
@@ -118,6 +127,7 @@ export function renderTasks() {
             chatMessageContainer.remove();
         }
     });
+
 
 
     socket.on('chat message', (message: any, messageId: any) => {
