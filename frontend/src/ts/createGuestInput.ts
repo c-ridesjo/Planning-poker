@@ -1,4 +1,5 @@
 const guestContainer: HTMLElement | null = document.getElementById("guest");
+import { socket } from "./main";
 
 export function renderGuest() {
   
@@ -21,9 +22,26 @@ export function renderGuest() {
     loginButton.id = "nextBtn";
     loginButton.type = "submit";
     loginButton.innerText = "Fortsätt";
-  
+
     guestContainer?.append(inputContainer);
     inputContainer.append(loginForm);
     loginForm.append(userNameInput);
     loginForm.append(loginButton);
+
+    loginButton.addEventListener('click', async function (e) {
+      e.preventDefault();
+
+      const guestUser = userNameInput.value;
+      
+      if (guestUser) {
+          userNameInput.value = "";
+          socket.emit('guestEvent', guestUser)
+
+      }
+      console.log(guestUser);
+    }); 
+
+
   }
+
+ 
