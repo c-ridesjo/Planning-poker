@@ -68,9 +68,12 @@ io.on("connection", function (socket) {
         io.emit("use-message", messageId);
     });
 
+
     socket.on("delete-message", (messageId) => {
+        console.log('received message:', messageId);
         io.emit("delete-message", messageId);
     });
+
 
 
 })
