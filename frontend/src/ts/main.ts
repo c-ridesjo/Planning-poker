@@ -1,4 +1,3 @@
-
 import { renderHeader, renderHeaderLoggedIn } from "./header";
 
 const name = localStorage.getItem("userName");
@@ -7,7 +6,6 @@ if (name) {
 } else {
   renderHeader();
 }
-
 
 // @ts-ignore
 import { io } from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js";
@@ -18,6 +16,7 @@ import { flipCards } from "./cards";
 import { renderTasks } from "./tasks";
 import { renderGuest } from "./createGuestInput";
 import { renderResult } from "./left-container";
+import { renderPointButtons } from "./pointButtons";
 
 socket.on("connect", () => {
   console.log("frontend");
@@ -28,4 +27,4 @@ flipCards();
 renderTasks();
 renderGuest();
 renderResult();
-
+renderPointButtons();
