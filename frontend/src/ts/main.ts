@@ -30,6 +30,6 @@ renderGuest();
 renderResult();
 renderPointButtons();
 
-const myScores = [3, 2, 5, 8, 3, 1, 5];
+const myScores = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
 
 renderScore(myScores);
