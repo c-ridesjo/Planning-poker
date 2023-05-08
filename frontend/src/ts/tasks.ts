@@ -33,7 +33,14 @@ export function renderTasks() {
     chatInputContainer.append(chatSendButton);
 
 
-    function addMessageToChat(message: any, messageId: any) {
+    // Retrieve chat messages from local storage and display them in the chat window
+    let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
+    messages.forEach((msg: any) => {
+        addMessageToChat(msg.message, msg.id, false);
+    });
+
+
+    function addMessageToChat(message: any, messageId: any, isNewMessage: boolean = true) {
         let chatMessageContainer = document.createElement("div");
         chatMessageContainer.classList.add("chat-message-container");
         chatMessageContainer.id = messageId;
@@ -46,6 +53,7 @@ export function renderTasks() {
         useButton.classList.add("use-button");
         useButton.innerText = "Använd";
 
+
         useButton.addEventListener("click", () => {
             const messageId = chatMessageContainer.id;
             socket.emit("use-message", messageId);
@@ -55,6 +63,13 @@ export function renderTasks() {
         let deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.innerText = "Radera";
+
+        if (isNewMessage) {
+            // Store the message in local storage
+            let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
+            messages.push({ id: messageId, message: message });
+            localStorage.setItem("chat-messages", JSON.stringify(messages));
+        }
 
         deleteButton.addEventListener("click", () => {
             const messageId = chatMessageContainer.id;
