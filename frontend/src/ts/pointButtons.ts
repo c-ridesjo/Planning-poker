@@ -42,14 +42,11 @@ export function renderPointButtons() {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function handleClick() {
       console.log("button clicked");
-      //buttons.innerText = cardBack.textContent 
-    
-      
+
+/*         function showNumber() {     //fortsätt här 
+          document.getElementById("buttons").innerText = document.getElementById("cardBack").textContent;
+        }    */
+        
     });
   }
-
-
-/* function myFunction() {
-  document.getElementById("point-button").addEventlistener("click");  
-} */
 }
