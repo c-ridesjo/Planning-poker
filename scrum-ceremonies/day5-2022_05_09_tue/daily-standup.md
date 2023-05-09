@@ -16,8 +16,8 @@ Lorem ipsum dolor sit amet
 
 Idag ska jag fixa kopplingen med databasen för att vi ska kunna spara spelets resultat, Sedan ska jag titta på själva connectionen med socket, efter att ha gjort en funktion som avrundar till närmaste fibonacci tal så insåg jag att jag inte tycker om fibonacci
 
-### Name 4
+### Filippa Söderlund
 
-Lorem ipsum dolor sit amet
+Igår kopplade jag ihop socket med guest inputfältet, idag ska jag kolla vidare hur vi delar upp adminsidan och guest sidan. 
 
 > ⚠️⚠️⚠️ Remember to add a screenshot of today's scrum board to this folder!
