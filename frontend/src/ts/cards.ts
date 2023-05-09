@@ -13,11 +13,13 @@ export function renderCards() {
   cardFront.classList.add("card_face")
   cardFront.classList.add("card_face_front");
   cardFront.id = "card_face_front";
+  cardFront.textContent = "";
 
   let cardBack = document.createElement("div"); 
   cardBack.classList.add("card_face")
   cardBack.classList.add("card_face_back");
   cardBack.id = "card_face_back";
+  cardBack.textContent = "";
   console.log('test');
 
   cardContainer?.append(cardWrapper);
@@ -26,7 +28,7 @@ export function renderCards() {
   card.appendChild(cardBack);
 }
 
-  export function flipCards() {
+export function flipCards() {
   const cards = document.querySelectorAll('.card');          
     [...cards].forEach((card)=>{
     card.addEventListener( 'click', function() {
@@ -34,3 +36,4 @@ export function renderCards() {
     });
   });
 }   
+

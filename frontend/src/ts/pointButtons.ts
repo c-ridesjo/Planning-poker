@@ -37,4 +37,19 @@ export function renderPointButtons() {
   pointButtonWrapper.appendChild(pointButtonThree);
   pointButtonWrapper.appendChild(pointButtonFive);
   pointButtonWrapper.appendChild(pointButtonEight);
+
+  let buttons = document.querySelectorAll(".point-button");   //Funkar
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function handleClick() {
+      console.log("button clicked");
+      //buttons.innerText = cardBack.textContent 
+    
+      
+    });
+  }
+
+
+/* function myFunction() {
+  document.getElementById("point-button").addEventlistener("click");  
+} */
 }
