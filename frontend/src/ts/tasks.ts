@@ -35,10 +35,10 @@ export function renderTasks() {
 
     // Retrieve chat messages from local storage and display them in the chat window
     let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
+
     messages.forEach((msg: any) => {
         addMessageToChat(msg.message, msg.id);
     });
-
 
 
     function addMessageToChat(message: any, messageId: any) {
