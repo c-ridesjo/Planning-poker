@@ -8,9 +8,9 @@
 
 I går försökte jag få till socketkopplingen till korten, vilket inte gick så bra, varför jag nu tar hjälp av Nikolaj. I dag ska jag koppla siffror till kort (få vald siffra att visa sig på kortets ena sida).
 
-### Name 2
+### Simon Vindahl
 
-Lorem ipsum dolor sit amet
+Göra så att när admin trycker på knappen-'använd', flyttas datan till en ny Array. Som sedan skrivs ut i en ny lista. Den nya utskriften ska även ha ett input fält och en knapp, så admin kan spara det slutgiltiga resultatet.
 
 ### Nikolaj Nowicki
 
