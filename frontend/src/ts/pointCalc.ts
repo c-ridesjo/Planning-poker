@@ -1,9 +1,6 @@
 const cardContainer: HTMLElement | null =
   document.getElementById("middle-container");
 
-const myScores = [75, 85, 90, 95];
-renderScore(myScores);
-
 export function renderScore(scores: number[]) {
   let scoreWrapper = document.createElement("div");
   scoreWrapper.classList.add("score-wrapper");
