@@ -4,9 +4,9 @@
 
 > Yesterday I…, today I will…, I need help with…, I'm stuck with…, TIL…
 
-### Name 1
+### Camilla Ridesjö
 
-Lorem ipsum dolor sit amet
+I går försökte jag få till socketkopplingen till korten, vilket inte gick så bra, varför jag nu tar hjälp av Nikolaj. I dag ska jag koppla siffror till kort (få vald siffra att visa sig på kortets ena sida).
 
 ### Name 2
 
