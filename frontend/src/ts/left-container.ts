@@ -65,6 +65,7 @@ function printData(message: string, id: string, value: string) {
         });
         localStorage.setItem("chat-messages-used", JSON.stringify(messagesUsed));
         console.log(messagesUsed);
+        valueInput.value = "";
     });
 
     valueInput.addEventListener("keydown", (event) => {
