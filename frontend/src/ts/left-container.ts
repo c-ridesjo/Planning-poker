@@ -43,7 +43,7 @@ function printData(message: string, id: string) {
     taskValue.classList.add("chat-message");
     taskValue.textContent = message;
 
-    const divTask = document.createElement("div");
+    const divContainer = document.createElement("div");
     taskValue.classList.add("chat-message-d");
 
     let valueInput = document.createElement("input");
@@ -56,10 +56,14 @@ function printData(message: string, id: string) {
     saveButton.classList.add("save-button");
     saveButton.innerText = "Spara";
 
+    saveButton.addEventListener("click", () => {
+        console.log(valueInput.value);
+    });
+
     container.appendChild(taskValue);
-    taskValue.append(divTask);
-    divTask.append(valueInput)
-    divTask.append(saveButton);
+    taskValue.append(divContainer);
+    divContainer.append(valueInput)
+    divContainer.append(saveButton);
 
     const chatOutputBox = document.querySelector(".chat-output-box1");
     if (chatOutputBox) {
