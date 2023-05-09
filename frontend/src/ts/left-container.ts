@@ -14,16 +14,18 @@ export function renderResult() {
     const chatOutputBox = document.createElement("div");
     chatOutputBox.classList.add("chat-output-box1");
 
+
+
     tasksContainer?.append(taskWrapper);
     taskWrapper.append(chatContainer);
     chatContainer.append(chatOutputBox);
+
 
     const messagesUsed = JSON.parse(localStorage.getItem("chat-messages-used") || "[]");
 
     messagesUsed.forEach((msg: any) => {
         printData(msg.message, msg.id);
     });
-
     socket.on("use-message", (messageId: any) => {
         const chatMessageContainer = document.getElementById(messageId);
         if (chatMessageContainer) {
@@ -33,18 +35,35 @@ export function renderResult() {
 }
 
 function printData(message: string, id: string) {
-    const chatMessageContainer = document.createElement("div");
-    chatMessageContainer.id = id;
-    chatMessageContainer.classList.add("chat-message-container");
+    const container = document.createElement("div");
+    container.id = id;
+    container.classList.add("chat-message-container");
 
-    const chatMessage = document.createElement("p");
-    chatMessage.classList.add("chat-message");
-    chatMessage.textContent = message;
+    const taskValue = document.createElement("p");
+    taskValue.classList.add("chat-message");
+    taskValue.textContent = message;
 
-    chatMessageContainer.appendChild(chatMessage);
+    const divTask = document.createElement("div");
+    taskValue.classList.add("chat-message-d");
+
+    let valueInput = document.createElement("input");
+    valueInput.classList.add("valueInput");
+    valueInput.type = "text";
+    valueInput.placeholder = "Värde";
+
+
+    let saveButton = document.createElement("button");
+    saveButton.classList.add("save-button");
+    saveButton.innerText = "Spara";
+
+    container.appendChild(taskValue);
+    taskValue.append(divTask);
+    divTask.append(valueInput)
+    divTask.append(saveButton);
 
     const chatOutputBox = document.querySelector(".chat-output-box1");
     if (chatOutputBox) {
-        chatOutputBox.appendChild(chatMessageContainer);
+
+        chatOutputBox.appendChild(container);
     }
 }
