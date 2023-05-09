@@ -67,6 +67,13 @@ function printData(message: string, id: string, value: string) {
         console.log(messagesUsed);
     });
 
+    valueInput.addEventListener("keydown", (event) => {
+        if (event.keyCode === 13) { // Enter key
+            event.preventDefault();
+            saveButton.click(); // simulate click event on save button
+        }
+    });
+
     container.appendChild(taskValue);
     divContainer.append(valueElement);
     taskValue.append(divContainer);
