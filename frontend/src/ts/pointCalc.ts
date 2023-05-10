@@ -3,6 +3,19 @@ import { socket } from "./main";
 const cardContainer: HTMLElement | null =
   document.getElementById("middle-container");
 
+export function renderScoreContainer() {
+  let scoreWrapper = document.createElement("div");
+  scoreWrapper.classList.add("score-wrapper");
+  scoreWrapper.id = "score-wrapper";
+
+  let score = document.createElement("div");
+  score.classList.add("score");
+  score.id = "score";
+
+  scoreWrapper.appendChild(score);
+  cardContainer?.append(scoreWrapper);
+}
+
 export function renderScore(scores: number[]) {
   let scoreWrapper = document.createElement("div");
   scoreWrapper.classList.add("score-wrapper");
@@ -44,11 +57,13 @@ function getClosestFibonacci(n: number): number {
 }
 
 export function renderTestCalc() {
-  const cards = document.querySelectorAll(".card");
-  const cardValues = [];
+  let cards = document.querySelectorAll(".card");
+  let cardValues: number[] = [];
 
   cards.forEach((card) => {
-    const cardValue = Number(card.querySelector(".card_face_back").innerText);
+    let cardValue = Number(
+      (card.querySelector(".card_face_back") as HTMLElement)?.innerText
+    );
     cardValues.push(cardValue);
   });
 

@@ -6,7 +6,7 @@ import { renderTasks } from "./tasks";
 import { renderGuest } from "./createGuestInput";
 import { renderResult } from "./left-container";
 import { renderPointButtons } from "./pointButtons";
-import { renderScore, renderTestCalc } from "./pointCalc";
+import { renderScoreContainer } from "./pointCalc";
 import { renderHeader, renderHeaderLoggedIn } from "./header";
 import { initCards, renderFlipButton } from "./cards";
 
@@ -17,6 +17,7 @@ if (name) {
   renderHeader();
 }
 
+renderScoreContainer();
 renderTasks();
 renderGuest();
 renderResult();
@@ -24,7 +25,6 @@ renderPointButtons();
 initCards(socket);
 
 // const myScores = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
-// renderScore(myScores);
 
 // renderTestCalc();
 
@@ -33,4 +33,9 @@ renderFlipButton(socket);
 socket.on("connect", () => {
   initCards(socket);
   console.log("frontend");
+});
+
+socket.on("scoreUpdate", (score: number) => {
+  let scoreElement = document.getElementById("score")!;
+  scoreElement.innerText = `Score: ${score}`;
 });

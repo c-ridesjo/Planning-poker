@@ -1,5 +1,5 @@
 import { Socket } from "./main";
-import { renderTestCalc, renderScore } from "./pointCalc";
+import { renderTestCalc } from "./pointCalc";
 const renderedCards: string[] = [];
 
 export function initCards(socket: Socket) {

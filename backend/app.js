@@ -98,6 +98,10 @@ io.on("connection", function (socket) {
       delete users[socket.id];
     }
   });
+
+  socket.on("scoreEvent", (score) => {
+    socket.broadcast.emit("scoreUpdate", score);
+  });
 });
 
 module.exports = { app: app, server: server };
