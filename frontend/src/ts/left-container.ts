@@ -19,18 +19,19 @@ export function renderResult() {
     chatContainer.append(chatOutputBox);
 
     messagesUsed.forEach((msg: any) => {
-        printData(msg.message, msg.id, msg.value);
+        printData(msg.message, msg.id, msg.value, chatOutputBox);
     });
 
-    socket.on("use-message", (messageId: any) => {
-        const chatMessageContainer = document.getElementById(messageId);
-        if (chatMessageContainer) {
-            chatOutputBox.appendChild(chatMessageContainer);
+    socket.on("use-message", (msg: any) => {
+        if (msg) {
+            printData(msg.message, msg.id, msg.value, chatOutputBox);
         }
-    });
+    }
+
+    )
 }
 
-function printData(message: string, id: string, value: string) {
+export function printData(message: string, id: string, value: string, chatOutputBox: HTMLElement) {
     const container = document.createElement("div");
     container.id = id;
     container.classList.add("chat-message-container");
@@ -76,12 +77,10 @@ function printData(message: string, id: string, value: string) {
     });
 
     container.appendChild(taskValue);
-    divContainer.append(valueElement);
-    taskValue.append(divContainer);
-    divContainer.append(valueInput)
-    divContainer.append(saveButton);
-
-    const chatOutputBox = document.querySelector(".chat-output-box1");
+    divContainer.appendChild(valueElement);
+    divContainer.appendChild(valueInput);
+    divContainer.appendChild(saveButton);
+    taskValue.appendChild(divContainer);
     if (chatOutputBox) {
         chatOutputBox.appendChild(container);
     }

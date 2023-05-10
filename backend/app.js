@@ -66,17 +66,20 @@ io.on("connection", function (socket) {
     }
   });
 
-  socket.on("task-event", (message) => {
-    console.log("received message:", message);
-    io.emit("chat message", message);
+  socket.on("task-event", (msg) => {
+    console.log("received message:", msg.message, msg.id);
+    io.emit("task-event", msg);
   });
 
-  socket.on("use-message", (messageId) => {
-    io.emit("use-message", messageId);
+
+
+  socket.on("use-message", (msg) => {
+    console.log("backend: " + + msg.message);
+    io.emit("use-message", msg);
   });
 
   socket.on("delete-message", (messageId) => {
-    console.log("received message:", messageId);
+    console.log("Deleted: ", messageId);
     io.emit("delete-message", messageId);
   });
 
