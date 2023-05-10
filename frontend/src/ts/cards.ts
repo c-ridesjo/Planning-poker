@@ -1,4 +1,5 @@
 import { Socket } from "./main";
+import { renderTestCalc, renderScore } from "./pointCalc";
 const renderedCards: string[] = [];
 
 export function initCards(socket: Socket) {
@@ -129,5 +130,6 @@ export function renderFlipButton(socket: Socket) {
 
   flipButton.addEventListener("click", function () {
     socket.emit("flipEvent");
+    renderTestCalc();
   });
 }

@@ -6,7 +6,7 @@ import { renderTasks } from "./tasks";
 import { renderGuest } from "./createGuestInput";
 import { renderResult } from "./left-container";
 import { renderPointButtons } from "./pointButtons";
-import { renderScore } from "./pointCalc";
+import { renderScore, renderTestCalc } from "./pointCalc";
 import { renderHeader, renderHeaderLoggedIn } from "./header";
 import { initCards, renderFlipButton } from "./cards";
 
@@ -23,8 +23,10 @@ renderResult();
 renderPointButtons();
 initCards(socket);
 
-const myScores = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
-renderScore(myScores);
+// const myScores = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
+// renderScore(myScores);
+
+// renderTestCalc();
 
 renderFlipButton(socket);
 

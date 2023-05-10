@@ -1,3 +1,5 @@
+import { socket } from "./main";
+
 const cardContainer: HTMLElement | null =
   document.getElementById("middle-container");
 
@@ -15,6 +17,8 @@ export function renderScore(scores: number[]) {
   );
   let closestFibonacci = getClosestFibonacci(averageScore);
   score.innerText = `Score: ${closestFibonacci}`;
+
+  socket.emit("scoreEvent", closestFibonacci);
 
   cardContainer?.append(scoreWrapper);
   scoreWrapper.appendChild(score);
@@ -37,4 +41,18 @@ function getClosestFibonacci(n: number): number {
   }
 
   // I do not like fibonacci one bit :'))))
+}
+
+export function renderTestCalc() {
+  const cards = document.querySelectorAll(".card");
+  const cardValues = [];
+
+  cards.forEach((card) => {
+    const cardValue = Number(card.querySelector(".card_face_back").innerText);
+    cardValues.push(cardValue);
+  });
+
+  console.log(cardValues); // Output: [1, 2, 3]
+
+  renderScore(cardValues);
 }
