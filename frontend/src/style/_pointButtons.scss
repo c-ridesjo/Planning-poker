@@ -8,9 +8,7 @@
 }
 
 .point-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
+  border-radius: 0.2rem;
   padding: 0.8rem 1.8rem;
   text-align: center;
   text-decoration: none;
@@ -19,7 +17,6 @@
   margin: 0.5rem 0.2rem;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: white; 
   color: black; 
   border: 0.2rem solid #4CAF50;
 }
