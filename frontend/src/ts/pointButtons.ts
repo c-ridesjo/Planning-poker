@@ -38,15 +38,15 @@ export function renderPointButtons() {
   pointButtonWrapper.appendChild(pointButtonFive);
   pointButtonWrapper.appendChild(pointButtonEight);
 
-  let buttons = document.querySelectorAll(".point-button");   //Funkar
+  let buttons = document.querySelectorAll(".point-button");   
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function handleClick() {
       console.log("button clicked");
-
-/*         function showNumber() {     //fortsätt här 
-          document.getElementById("buttons").innerText = document.getElementById("cardBack").textContent;
-        }    */
-        
+      document.querySelector("cardBack")?.textContent;     
+       
     });
   }
 }
+
+// På klick ska siffran på knappen kopieras till baksidan på kortet. 
+// Hämta cardBack.textContent = "" från cards.ts

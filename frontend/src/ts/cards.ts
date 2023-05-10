@@ -19,7 +19,7 @@ export function renderCards() {
   cardBack.classList.add("card_face")
   cardBack.classList.add("card_face_back");
   cardBack.id = "card_face_back";
-  cardBack.textContent = "";
+  cardBack.textContent = "";            
   console.log('test');
 
   cardContainer?.append(cardWrapper);
