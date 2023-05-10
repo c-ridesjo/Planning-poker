@@ -17,7 +17,6 @@ import { renderTasks } from "./tasks";
 import { renderGuest } from "./createGuestInput";
 import { renderResult } from "./left-container";
 import { renderPointButtons } from "./pointButtons";
-//import { showNumber } from "./pointButtons";
 import { renderScore } from "./pointCalc";
 
 socket.on("connect", () => {
@@ -30,7 +29,6 @@ renderTasks();
 renderGuest();
 renderResult();
 renderPointButtons();
-//showNumber();
 
 const myScores = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
 

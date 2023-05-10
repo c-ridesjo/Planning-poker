@@ -13,14 +13,11 @@ export function renderCards() {
   cardFront.classList.add("card_face")
   cardFront.classList.add("card_face_front");
   cardFront.id = "card_face_front";
-  cardFront.textContent = "";
 
   let cardBack = document.createElement("div"); 
   cardBack.classList.add("card_face")
   cardBack.classList.add("card_face_back");
-  cardBack.id = "card_face_back";
-  cardBack.textContent = "";            
-  console.log('test');
+  cardBack.id = "card_face_back";    
 
   cardContainer?.append(cardWrapper);
   cardWrapper.appendChild(card);
