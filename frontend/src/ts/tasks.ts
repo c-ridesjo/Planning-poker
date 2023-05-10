@@ -79,7 +79,6 @@ export function renderTasks() {
         deleteButton.addEventListener("click", () => {
             const messageId = chatMessageContainer.id;
             // Remove the message from local storage
-            let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
             messages = messages.filter((msg: any) => msg.id !== messageId);
             localStorage.setItem("chat-messages", JSON.stringify(messages));
 
