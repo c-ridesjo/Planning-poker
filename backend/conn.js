@@ -1,4 +1,4 @@
-/*const mysql = require("mysql2");
+const mysql = require("mysql2");
 require("dotenv").config();
 
 connection = mysql.createConnection({
@@ -10,4 +10,3 @@ connection = mysql.createConnection({
 });
 
 module.exports = connection;
-*/
