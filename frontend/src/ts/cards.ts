@@ -9,6 +9,20 @@ export function initCards(socket: Socket) {
     }
   });
 
+  interface VoteData {
+    username: string;
+    vote: string;
+  }
+
+  socket.on("voteEvent", (data: VoteData) => {
+    console.log("Received vote event", data.username, data.vote);
+    let card = document.getElementById(`card_${data.username}`);
+    let cardBack = card?.querySelector(".card_face_back");
+    if (cardBack) {
+      cardBack.innerHTML = data.vote;
+    }
+  });
+
   socket.on("guestEvent", (guestUser: string) => {
     console.log(`guest user ${guestUser} joined`);
 
@@ -77,7 +91,7 @@ export function renderCards(guestUser: string) {
   let cardBack = document.createElement("div");
   cardBack.classList.add("card_face");
   cardBack.classList.add("card_face_back");
-  cardBack.id = "card_face_back";    
+  cardBack.id = "card_face_back";
 
   cardWrapper.appendChild(card);
   card.appendChild(cardFront);

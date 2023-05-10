@@ -85,6 +85,11 @@ io.on("connection", function (socket) {
     io.emit("flipEvent");
   });
 
+  socket.on("voteEvent", (data) => {
+    console.log("Received vote event", data.username, data.vote);
+    io.sockets.emit("voteEvent", data);
+  });
+
   socket.on("disconnect", () => {
     console.log("user disconnected");
     const disconnectedUser = users[socket.id];
