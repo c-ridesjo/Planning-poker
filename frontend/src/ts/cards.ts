@@ -77,6 +77,7 @@ export function renderCards(guestUser: string) {
   let cardBack = document.createElement("div");
   cardBack.classList.add("card_face");
   cardBack.classList.add("card_face_back");
+  cardBack.id = "card_face_back";    
 
   cardWrapper.appendChild(card);
   card.appendChild(cardFront);
