@@ -1,4 +1,6 @@
-body { font-family: sans-serif; }
+body {
+  font-family: sans-serif;
+}
 
 .card_wrapper {
   display: inline-block;
@@ -6,7 +8,9 @@ body { font-family: sans-serif; }
   height: 260px;
   margin: 40px 0;
   perspective: 600px;
-} 
+  margin-left: 15px;
+  margin-right: 15px;
+}
 
 .card {
   position: relative;
@@ -18,29 +22,33 @@ body { font-family: sans-serif; }
   transition: transform 1s;
 }
 
- .card.is_flipped {
-   transform: translateX(-100%) rotateY(-180deg);
+.card.is_flipped {
+  transform: translateX(-100%) rotateY(-180deg);
 }
 
 .card_face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    line-height: 260px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    font-size: 40px;
-    border-radius: 8px;
-    backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  border-radius: 8px;
+  backface-visibility: hidden;
 }
 
- .card_face_front {
-    background-color: rgb(242, 42, 16);
+.card_face_front {
+  background-color: rgb(242, 42, 16);
 }
 
- .card_face_back {
-   background: rgb(2, 185, 30);
-   transform: rotateY(180deg);
+.card_face_back {
+  background: rgb(2, 185, 30);
+  transform: rotateY(180deg);
 }
 
+.card_holder_name {
+  text-align: center;
+  margin-top: 20px;
+}

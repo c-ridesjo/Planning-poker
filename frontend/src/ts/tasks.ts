@@ -35,10 +35,10 @@ export function renderTasks() {
 
     // Retrieve chat messages from local storage and display them in the chat window
     let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
+
     messages.forEach((msg: any) => {
         addMessageToChat(msg.message, msg.id);
     });
-
 
 
     function addMessageToChat(message: any, messageId: any) {
@@ -57,18 +57,28 @@ export function renderTasks() {
         useButton.addEventListener("click", () => {
             const messageId = chatMessageContainer.id;
             socket.emit("use-message", messageId);
+
+            // Retrieve the messages from localStorage
+            let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
+            // Find the message in the array by its id
+            const index = messages.findIndex((msg: any) => msg.id === messageId);
+            if (index > -1) { // if the message is found
+                const messageObj = messages[index];
+                messages.splice(index, 1); // remove the message from the array
+                // Store the updated messages array in localStorage
+                localStorage.setItem("chat-messages-used", JSON.stringify([messageObj].concat(JSON.parse(localStorage.getItem("chat-messages-used") || "[]"))));
+                localStorage.setItem("chat-messages", JSON.stringify(messages));
+            }
         });
+
 
         let deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.innerText = "Radera";
 
-
-
         deleteButton.addEventListener("click", () => {
             const messageId = chatMessageContainer.id;
             // Remove the message from local storage
-            let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
             messages = messages.filter((msg: any) => msg.id !== messageId);
             localStorage.setItem("chat-messages", JSON.stringify(messages));
 
@@ -77,7 +87,6 @@ export function renderTasks() {
 
             // Remove the chat message container from the DOM
             chatMessageContainer.remove();
-
         });
 
         chatOutputBox.append(chatMessageContainer);
@@ -85,6 +94,7 @@ export function renderTasks() {
         chatMessageContainer.append(useButton);
         chatMessageContainer.append(deleteButton);
     }
+
 
 
 
