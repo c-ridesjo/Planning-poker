@@ -6,8 +6,8 @@
 ### Name 1
 Lorem ipsum dolor sit amet
 
-### Name 2
-Lorem ipsum dolor sit amet
+### Simon Vindahl
+Behöver nog gå en kurs i Socket igen.. Dagen ska gå åt att bryta ner en nestad-funktion och lösa uppgifter som hade kunnat undikas med bättre planering och ordentliga förkunskaper inom ämnet!
 
 ### Camilla Ridesjö
 I går fixade jag kopplingen mellan knappar och kort men jag ska ändra lite i den i dag. Sedan får vi se vilka uppgifter som finns kvar att göra, om det är något att göra på egen hand eller i grupp.
