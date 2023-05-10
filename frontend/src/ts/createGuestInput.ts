@@ -1,4 +1,5 @@
 import { socket } from "./main";
+import { currentUser } from "./currentUser";
 
 export function renderGuest() {
   let inputContainer = document.createElement("div");
@@ -34,6 +35,7 @@ export function renderGuest() {
 
     if (guestUser) {
       userNameInput.value = "";
+      currentUser.username = guestUser;
       socket.emit("guestEvent", guestUser);
     }
   });

@@ -1,3 +1,6 @@
+import { socket } from "./main";
+import { currentUser } from "./currentUser";
+
 const cardContainer: HTMLElement | null =
   document.getElementById("middle-container");
 
@@ -11,8 +14,7 @@ export function renderPointButtons() {
   pointButtonOne.id = "point-button";
   pointButtonOne.innerText = "1";
   pointButtonOne.addEventListener("click", () => {
-    // @ts-ignore
-    card_face_back.innerHTML="1";
+    socket.emit("voteEvent", { username: currentUser.username, vote: "1" });
   });
 
   let pointButtonTwo = document.createElement("button");
@@ -20,8 +22,7 @@ export function renderPointButtons() {
   pointButtonTwo.id = "point-button";
   pointButtonTwo.innerText = "2";
   pointButtonTwo.addEventListener("click", () => {
-    // @ts-ignore
-    card_face_back.innerHTML="2";
+    socket.emit("voteEvent", { username: currentUser.username, vote: "2" });
   });
 
   let pointButtonThree = document.createElement("button");
@@ -29,8 +30,7 @@ export function renderPointButtons() {
   pointButtonThree.id = "point-button";
   pointButtonThree.innerText = "3";
   pointButtonThree.addEventListener("click", () => {
-    // @ts-ignore
-    card_face_back.innerHTML="3";
+    socket.emit("voteEvent", { username: currentUser.username, vote: "3" });
   });
 
   let pointButtonFive = document.createElement("button");
@@ -38,8 +38,7 @@ export function renderPointButtons() {
   pointButtonFive.id = "point-button";
   pointButtonFive.innerText = "5";
   pointButtonFive.addEventListener("click", () => {
-    // @ts-ignore
-    card_face_back.innerHTML="5";
+    socket.emit("voteEvent", { username: currentUser.username, vote: "5" });
   });
 
   let pointButtonEight = document.createElement("button");
@@ -47,9 +46,8 @@ export function renderPointButtons() {
   pointButtonEight.id = "point-button";
   pointButtonEight.innerText = "8";
   pointButtonEight.addEventListener("click", () => {
-    // @ts-ignore
-      card_face_back.innerHTML = "8";
-    });
+    socket.emit("voteEvent", { username: currentUser.username, vote: "8" });
+  });
 
   cardContainer?.append(pointButtonWrapper);
   pointButtonWrapper.appendChild(pointButtonOne);
@@ -57,5 +55,4 @@ export function renderPointButtons() {
   pointButtonWrapper.appendChild(pointButtonThree);
   pointButtonWrapper.appendChild(pointButtonFive);
   pointButtonWrapper.appendChild(pointButtonEight);
-
 }
