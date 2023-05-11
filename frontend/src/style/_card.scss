@@ -52,3 +52,13 @@ body {
   text-align: center;
   margin-top: 20px;
 }
+
+#cardContainerDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 100%;
+  overflow: hidden;
+}

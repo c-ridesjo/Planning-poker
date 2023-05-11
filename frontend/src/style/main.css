@@ -1,1 +1,1 @@
-.main{display:flex;justify-content:space-between}.left-container{width:20%}.middle-container{width:60%}.right-container{width:20%}#cardContainerDiv{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:20px;max-width:100%;overflow:hidden}
+.main{display:flex;justify-content:space-between}.left-container{width:20%}.middle-container{width:60%}.right-container{width:20%}.displayNone{display:none}
