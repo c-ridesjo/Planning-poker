@@ -9,29 +9,24 @@ import { renderPointButtons } from "./pointButtons";
 import { renderScoreContainer } from "./pointCalc";
 import { renderHeader, renderHeaderLoggedIn } from "./header";
 import { renderHeading } from "./heading";
-import { initCards, renderFlipButton } from "./cards";
+import { initCards } from "./cards";
+import { renderAdminBar } from "./adminBar";
 
 const name = localStorage.getItem("userName");
 if (name) {
   renderHeaderLoggedIn();
+  renderAdminBar();
 } else {
   renderHeader();
 }
 
 adminLogedIn();
-renderHeading()
+renderHeading();
 renderScoreContainer();
 renderTasks();
-//renderGuest();
 renderResult();
 renderPointButtons();
 initCards(socket);
-
-// const myScores = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
-
-// renderTestCalc();
-
-renderFlipButton(socket);
 
 socket.on("connect", () => {
   initCards(socket);
@@ -44,15 +39,10 @@ socket.on("scoreUpdate", (score: number) => {
 });
 
 function adminLogedIn() {
-  
   if (name === "admin") {
-   
-   // if (name.value === '' || name.value.length < 2) {
-      
-    
+    // if (name.value === '' || name.value.length < 2) {
   } else {
-    console.log("Guest inloggad")
+    console.log("Guest inloggad");
     renderGuest(socket);
-   
   }
 }

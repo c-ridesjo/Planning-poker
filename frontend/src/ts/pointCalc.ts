@@ -2,13 +2,15 @@ import { socket } from "./main";
 
 const cardContainer: HTMLElement | null =
   document.getElementById("middle-container");
+let scoreWrapper: HTMLElement | null = null;
+let score: HTMLElement | null = null;
 
 export function renderScoreContainer() {
-  let scoreWrapper = document.createElement("div");
+  scoreWrapper = document.createElement("div");
   scoreWrapper.classList.add("score-wrapper");
   scoreWrapper.id = "score-wrapper";
 
-  let score = document.createElement("div");
+  score = document.createElement("div");
   score.classList.add("score");
   score.id = "score";
 
@@ -17,13 +19,10 @@ export function renderScoreContainer() {
 }
 
 export function renderScore(scores: number[]) {
-  let scoreWrapper = document.createElement("div");
-  scoreWrapper.classList.add("score-wrapper");
-  scoreWrapper.id = "score-wrapper";
-
-  let score = document.createElement("div");
-  score.classList.add("score");
-  score.id = "score";
+  if (scoreWrapper === null || score === null) {
+    console.error("Score container is not initialized.");
+    return;
+  }
 
   let averageScore = Math.round(
     scores.reduce((a, b) => a + b, 0) / scores.length
@@ -32,9 +31,6 @@ export function renderScore(scores: number[]) {
   score.innerText = `Score: ${closestFibonacci}`;
 
   socket.emit("scoreEvent", closestFibonacci);
-
-  cardContainer?.append(scoreWrapper);
-  scoreWrapper.appendChild(score);
 }
 
 function getClosestFibonacci(n: number): number {
@@ -52,8 +48,6 @@ function getClosestFibonacci(n: number): number {
   } else {
     return previousFibonacci;
   }
-
-  // I do not like fibonacci one bit :'))))
 }
 
 export function renderTestCalc() {
@@ -67,7 +61,7 @@ export function renderTestCalc() {
     cardValues.push(cardValue);
   });
 
-  console.log(cardValues); // Output: [1, 2, 3]
+  console.log(cardValues);
 
   renderScore(cardValues);
 }

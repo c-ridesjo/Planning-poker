@@ -71,8 +71,6 @@ io.on("connection", function (socket) {
     io.emit("task-event", msg);
   });
 
-
-
   socket.on("use-message", (msg) => {
     console.log("backend: " + msg.message);
     io.emit("use-message", msg);
@@ -109,6 +107,16 @@ io.on("connection", function (socket) {
 
   socket.on("scoreEvent", (score) => {
     socket.broadcast.emit("scoreUpdate", score);
+  });
+
+  socket.on("resetEvent", () => {
+    console.log("Received reset event");
+    for (let id in users) {
+      if (users[id].hasOwnProperty("cardState")) {
+        users[id].cardState = false;
+      }
+    }
+    io.emit("resetEvent");
   });
 });
 

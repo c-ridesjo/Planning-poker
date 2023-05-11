@@ -52,6 +52,14 @@ export function initCards(socket: Socket) {
         card.classList.remove("is_flipped");
       }
     }
+
+    socket.on("resetEvent", () => {
+      console.log("Received reset event");
+      let cards = document.querySelectorAll(".card_face_back");
+      cards.forEach((card) => {
+        card.innerHTML = ""; // or set to default value
+      });
+    });
   });
 
   socket.on(
@@ -115,7 +123,6 @@ export function renderCards(guestUser: string) {
   cardContainerDiv.appendChild(cardWrapper);
 }
 
-
 export function flipCards(socket: Socket) {
   let cards = document.querySelectorAll(".card");
   [...cards].forEach((card) => {
@@ -125,15 +132,14 @@ export function flipCards(socket: Socket) {
 }
 
 export function renderFlipButton(socket: Socket) {
-  let cardContainer: HTMLElement | null =
-    document.getElementById("middle-container");
+  const barContainer: HTMLElement | null = document.getElementById("bar");
 
   let flipButton = document.createElement("button");
   flipButton.classList.add("flipBtn");
   flipButton.id = "flipBtn";
   flipButton.innerText = "Vänd kort";
 
-  cardContainer?.append(flipButton);
+  barContainer?.append(flipButton);
 
   flipButton.addEventListener("click", function () {
     socket.emit("flipEvent");
