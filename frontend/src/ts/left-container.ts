@@ -25,14 +25,18 @@ export function renderResult() {
     chatContainer.append(chatOutputBox);
     chatOutputBox.append(headerTask);
 
-    messagesUsed.forEach((msg: any) => {
-        printData(msg.message, msg.id, msg.value, chatOutputBox);
-    });
+
 
     socket.on("use-message", (msg: any) => {
         if (msg) {
+            messagesUsed.push(msg); // add new message to array
             printData(msg.message, msg.id, msg.value, chatOutputBox);
+            localStorage.setItem("chat-messages-used", JSON.stringify(messagesUsed)); // update local storage
         }
+    });
+
+    messagesUsed.forEach((msg: any) => {
+        printData(msg.message, msg.id, msg.value, chatOutputBox);
     });
 
 
@@ -47,7 +51,6 @@ export function renderResult() {
             }
         }
     });
-
 
 }
 
@@ -85,8 +88,10 @@ export function printData(message: string, id: string, value: string, chatOutput
                 valueElement.textContent = valueInput.value; // update value element with new value
                 socket.emit("input-value", msg);
                 console.log(msg);
+
                 return;
             }
+
         });
         localStorage.setItem("chat-messages-used", JSON.stringify(messagesUsed));
         console.log(messagesUsed);
