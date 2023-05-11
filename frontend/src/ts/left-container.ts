@@ -14,9 +14,16 @@ export function renderResult() {
     const chatOutputBox = document.createElement("div");
     chatOutputBox.classList.add("chat-output-box1");
 
+    const headerTask = document.createElement("div");
+    headerTask.classList.add("headerTask");
+    const headerText = document.createElement("h2");
+    headerText.textContent = "Besvarade frågor";
+    headerTask.appendChild(headerText);
+
     tasksContainer?.append(taskWrapper);
     taskWrapper.append(chatContainer);
     chatContainer.append(chatOutputBox);
+    chatOutputBox.append(headerTask);
 
     messagesUsed.forEach((msg: any) => {
         printData(msg.message, msg.id, msg.value, chatOutputBox);
@@ -26,10 +33,10 @@ export function renderResult() {
         if (msg) {
             printData(msg.message, msg.id, msg.value, chatOutputBox);
         }
-    }
-
-    )
+    });
 }
+
+
 
 export function printData(message: string, id: string, value: string, chatOutputBox: HTMLElement) {
     const container = document.createElement("div");

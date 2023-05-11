@@ -6,8 +6,15 @@ export function renderTasks() {
     taskWrapper.classList.add("task-wrapper");
     taskWrapper.id = "task-wrapper";
 
+    let header = document.createElement("div");
+    header.classList.add("headerTask");
+    header.innerText = "kommande frågor";
+
     let chatContainer = document.createElement("div");
     chatContainer.classList.add("chat-container");
+
+    let chatHeader = document.createElement("h2");
+    chatHeader.innerText = "Kommande frågor";
 
     let chatOutputBox = document.createElement("div");
     chatOutputBox.classList.add("chat-output-box");
@@ -27,6 +34,7 @@ export function renderTasks() {
 
     tasksContainer?.append(taskWrapper);
     taskWrapper.append(chatContainer);
+    chatContainer.append(chatHeader);
     chatContainer.append(chatOutputBox);
     chatContainer.append(chatInputContainer);
     chatInputContainer.append(chatMessageInput);
