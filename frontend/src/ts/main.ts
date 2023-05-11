@@ -8,6 +8,7 @@ import { renderResult } from "./left-container";
 import { renderPointButtons } from "./pointButtons";
 import { renderScoreContainer } from "./pointCalc";
 import { renderHeader, renderHeaderLoggedIn } from "./header";
+import { renderHeading } from "./heading";
 import { initCards, renderFlipButton } from "./cards";
 
 const name = localStorage.getItem("userName");
@@ -17,6 +18,7 @@ if (name) {
   renderHeader();
 }
 
+renderHeading()
 renderScoreContainer();
 renderTasks();
 renderGuest();
