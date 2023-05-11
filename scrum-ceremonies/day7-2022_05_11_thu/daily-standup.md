@@ -8,9 +8,9 @@
 
 Lorem ipsum dolor sit amet
 
-### Name 2
+### Camilla Ridesjö
 
-Lorem ipsum dolor sit amet
+I dag ska jag snygga till utseendet på vårt projekt med diverse css-styling.
 
 ### Nikolaj Nowicki
 
