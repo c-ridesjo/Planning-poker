@@ -1,11 +1,12 @@
 #point-button-wrapper {
-  bottom: 0.6rem;
-  width: 30%;
+
   height: 4rem;
-  background-color: rgb(171, 248, 138);
+
   text-align: center;
   position: fixed;
-  margin-left: 15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
 }
 
 .point-button {
@@ -13,12 +14,12 @@
   padding: 0.8rem 1.8rem;
   text-align: center;
   text-decoration: none;
-  display: inline-block;  
+  display: inline-block;
   font-size: 1rem;
   margin: 0.5rem 0.2rem;
   transition-duration: 0.4s;
   cursor: pointer;
-  color: black; 
+  color: black;
   border: 0.2rem solid #4CAF50;
 }
 
