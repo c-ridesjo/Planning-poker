@@ -34,23 +34,27 @@ body {
   color: white;
   text-align: center;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 50px;
   border-radius: 8px;
   backface-visibility: hidden;
 }
 
 .card_face_front {
-  background-color: rgb(242, 42, 16);
+  background-image: linear-gradient(rgb(32, 32, 208), rgb(138, 138, 212));
+  border: 5px solid white;
 }
 
 .card_face_back {
-  background: rgb(2, 185, 30);
+  background-image: linear-gradient(green, rgb(5, 186, 5));
   transform: rotateY(180deg);
 }
 
 .card_holder_name {
   text-align: center;
   margin-top: 20px;
+  font-size: 1.2rem;
+  color:rgb(32, 32, 208);
+  
 }
 
 #cardContainerDiv {
