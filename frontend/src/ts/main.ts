@@ -18,10 +18,11 @@ if (name) {
   renderHeader();
 }
 
+adminLogedIn();
 renderHeading()
 renderScoreContainer();
 renderTasks();
-renderGuest();
+//renderGuest();
 renderResult();
 renderPointButtons();
 initCards(socket);
@@ -41,3 +42,17 @@ socket.on("scoreUpdate", (score: number) => {
   let scoreElement = document.getElementById("score")!;
   scoreElement.innerText = `Score: ${score}`;
 });
+
+function adminLogedIn() {
+  
+  if (name === "admin") {
+   
+   // if (name.value === '' || name.value.length < 2) {
+      
+    
+  } else {
+    console.log("Guest inloggad")
+    renderGuest(socket);
+   
+  }
+}

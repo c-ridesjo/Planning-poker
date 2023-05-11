@@ -38,5 +38,11 @@ export function renderGuest() {
       currentUser.username = guestUser;
       socket.emit("guestEvent", guestUser);
     }
+    localStorage.removeItem("userName");
+    if (inputContainer) {
+      inputContainer.innerHTML = "";
+    }
+
+
   });
 }
