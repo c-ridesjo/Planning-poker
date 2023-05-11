@@ -4,9 +4,9 @@
 
 > Yesterday I…, today I will…, I need help with…, I'm stuck with…, TIL…
 
-### Name 1
+### Simon
 
-Lorem ipsum dolor sit amet
+Idag blir det mycket kodning inför morgondagens redovisning! Idag ska jag fixa utskrift av rubrik, styling samt rubrik i 'tasks' samt göra sockets för admin input av resultatet.
 
 ### Camilla Ridesjö
 
