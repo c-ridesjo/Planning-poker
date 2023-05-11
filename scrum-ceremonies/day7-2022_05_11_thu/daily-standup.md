@@ -16,8 +16,8 @@ I dag ska jag snygga till utseendet på vårt projekt med diverse css-styling.
 
 Idag ska jag fixa så att korten ska resetas efter röstning, och se till så att admin kan avsluta en session. Samt Städa lite i koden på slutet av dagen.
 
-### Name 4
+### Filippa Söderlund
 
-Lorem ipsum dolor sit amet
+Idag fortsätta med vad som visas för admin och se till så att guest input försvinner när man "loggar in" som gäst 
 
 > ⚠️⚠️⚠️ Remember to add a screenshot of today's scrum board to this folder!
