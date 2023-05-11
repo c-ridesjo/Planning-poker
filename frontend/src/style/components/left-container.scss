@@ -2,18 +2,18 @@
     position: fixed;
     top: 50px;
     /* adjust as needed */
-    bottom: 0;
+    bottom: 50px;
     left: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: space-between;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+    border-right: 2px solid #ccc;
     width: 100%;
     max-width: 20%;
     margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
     overflow-y: auto;
+    text-align: -webkit-center;
 }

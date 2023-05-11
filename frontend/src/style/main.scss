@@ -3,6 +3,10 @@
   justify-content: space-between;
 }
 
+body {
+  background: #2ac4e3;
+}
+
 .left-container {
   width: 20%;
 }
@@ -15,11 +19,11 @@
   width: 20%;
 }
 
-.displayNone{
-    display: none;
+.displayNone {
+  display: none;
 }
 
-.guestForm {                        
+.guestForm {
   background-color: red;
 }
 
