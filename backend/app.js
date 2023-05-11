@@ -74,7 +74,7 @@ io.on("connection", function (socket) {
 
 
   socket.on("use-message", (msg) => {
-    console.log("backend: " + + msg.message);
+    console.log("backend: " + msg.message);
     io.emit("use-message", msg);
   });
 

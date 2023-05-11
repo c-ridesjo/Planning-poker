@@ -66,7 +66,12 @@ export function renderTasks() {
 
         }
     });
-
+    socket.on("use-message", (msg: any) => {
+        const chatMessageContainer = document.getElementById(msg.id);
+        if (chatMessageContainer) {
+            chatMessageContainer.remove();
+        }
+    });
 
 
     socket.on("delete-message", (messageId: any) => {
@@ -99,15 +104,17 @@ export function addMessageToChat(message: any, messageId: any, chatOutputBox: HT
     useButton.classList.add("use-button");
     useButton.innerText = "Använd";
 
+
     useButton.addEventListener("click", () => {
         const messageId = chatMessageContainer.id;
-        console.log("från tasks: " + message + " " + messageId)
-        socket.emit('use-message', { message: message, id: messageId });
+        console.log("från tasks: " + message + " " + messageId);
+        const value = " ";
 
         // Retrieve the messages from localStorage
         let messages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
         // Find the message in the array by its id
         const index = messages.findIndex((msg: any) => msg.id === messageId);
+
         if (index > -1) {
             const messageObj = messages[index];
             messages.splice(index, 1);
@@ -118,9 +125,19 @@ export function addMessageToChat(message: any, messageId: any, chatOutputBox: HT
             );
             localStorage.setItem("chat-messages", JSON.stringify(messages));
         }
-        // Remove the chat message container from the DOM
-        chatMessageContainer.remove();
+
+
+        // Get the updated messages from localStorage
+        const updatedMessages = JSON.parse(localStorage.getItem("chat-messages") || "[]");
+
+
+        socket.emit("use-message", { message: message, id: messageId, value: value, messages: updatedMessages });
+
+
+
+
     });
+
 
     let deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
