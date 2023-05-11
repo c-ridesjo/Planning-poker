@@ -1,3 +1,5 @@
+import { renderAdminBar } from "./adminBar";
+
 const headerContainer: HTMLElement | null = document.getElementById("header");
 
 export function renderHeader() {
@@ -49,6 +51,18 @@ export function renderHeader() {
       if (response.status === 200) {
         localStorage.setItem("userName", username);
         renderHeaderLoggedIn();
+        renderAdminBar();
+
+        let chatMessageInput = document.getElementById(
+          "chat-message-input"
+        ) as HTMLInputElement;
+
+        let chatSendButton = document.getElementById(
+          "chat-send-button"
+        ) as HTMLButtonElement;
+
+        chatMessageInput.disabled = false;
+        chatSendButton.disabled = false;
       } else {
         const error = await response.text();
         throw new Error(error);
@@ -96,7 +110,8 @@ export function renderHeaderLoggedIn() {
     if (headerContainer) {
       headerContainer.innerHTML = "";
     }
-    renderHeader();
+    // renderHeader();
+    location.reload();
   });
 
   headerContainer?.append(headerWrapper);
