@@ -104,10 +104,17 @@ export function renderCards(guestUser: string) {
 
   cardWrapper.appendChild(cardHolderName);
 
-  let cardContainer: HTMLElement | null =
-    document.getElementById("middle-container");
-  cardContainer?.append(cardWrapper);
+  let cardContainerDiv = document.getElementById("cardContainerDiv");
+  if (!cardContainerDiv) {
+    cardContainerDiv = document.createElement("div");
+    cardContainerDiv.id = "cardContainerDiv";
+    let cardContainer = document.getElementById("middle-container");
+    cardContainer?.appendChild(cardContainerDiv);
+  }
+
+  cardContainerDiv.appendChild(cardWrapper);
 }
+
 
 export function flipCards(socket: Socket) {
   let cards = document.querySelectorAll(".card");
