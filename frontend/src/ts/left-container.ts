@@ -34,6 +34,21 @@ export function renderResult() {
             printData(msg.message, msg.id, msg.value, chatOutputBox);
         }
     });
+
+
+    socket.on("input-value", (msg: any) => {
+        console.log("frontend: " + msg.value);
+
+        if (msg.value) {
+            // Update the value in the UI
+            const valueElement = document.getElementById(msg.id)?.querySelector(".task-value");
+            if (valueElement) {
+                valueElement.textContent = msg.value;
+            }
+        }
+    });
+
+
 }
 
 
@@ -68,6 +83,8 @@ export function printData(message: string, id: string, value: string, chatOutput
             if (msg.id === id) {
                 msg.value = valueInput.value;
                 valueElement.textContent = valueInput.value; // update value element with new value
+                socket.emit("input-value", msg);
+                console.log(msg);
                 return;
             }
         });

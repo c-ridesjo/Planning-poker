@@ -78,6 +78,11 @@ io.on("connection", function (socket) {
     io.emit("use-message", msg);
   });
 
+  socket.on("input-value", (msg) => {
+    console.log("input value: backend " + msg.value);
+    io.emit("input-value", msg);
+  });
+
   socket.on("delete-message", (messageId) => {
     console.log("Deleted: ", messageId);
     io.emit("delete-message", messageId);
