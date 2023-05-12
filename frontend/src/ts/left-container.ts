@@ -77,11 +77,11 @@ export function printData(
 
   const taskValue = document.createElement("p");
   taskValue.classList.add("chat-message");
-  taskValue.textContent = message;
+  taskValue.textContent = "Fråga: " + message;
 
   const valueElement = document.createElement("p");
   valueElement.classList.add("task-value");
-  valueElement.textContent = value;
+  valueElement.textContent = "Värde: " + value;
 
   const divContainer = document.createElement("div");
   divContainer.classList.add("chat-message-d");
