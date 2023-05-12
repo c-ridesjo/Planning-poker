@@ -63,6 +63,14 @@ export function printData(
   value: string,
   chatOutputBox: HTMLElement
 ) {
+  // Create containerTop div if it doesn't exist
+  let containerTop = chatOutputBox.querySelector(".containerTop");
+  if (!containerTop) {
+    containerTop = document.createElement("div");
+    containerTop.classList.add("containerTop");
+    chatOutputBox.appendChild(containerTop);
+  }
+
   const container = document.createElement("div");
   container.id = id;
   container.classList.add("chat-message-container");
@@ -128,13 +136,12 @@ export function printData(
       saveButton.click(); // simulate click event on save button
     }
   });
-
+  containerTop.appendChild(container);
   container.appendChild(taskValue);
   divContainer.appendChild(valueElement);
   divContainer.appendChild(valueInput);
   divContainer.appendChild(saveButton);
   taskValue.appendChild(divContainer);
-  if (chatOutputBox) {
-    chatOutputBox.appendChild(container);
-  }
+
 }
+
