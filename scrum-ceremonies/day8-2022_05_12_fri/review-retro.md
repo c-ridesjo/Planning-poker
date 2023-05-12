@@ -3,8 +3,8 @@
 
 Today's review & retro are free-form, document as you like!
 
-Glad: 
+Glad: Överlag har det mesta gått bra och samarbetet i gruppen har också fungerat bra. 
 
-Mad: 
+Mad: Socket har hemsökt oss under hela projektet och tagit mer tid i anspråk än vi hade tänkt från början.
 
-Sad: 
+Sad: Vi har inget att vara ledsna över.
